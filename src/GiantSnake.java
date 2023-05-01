@@ -2,7 +2,7 @@ public class GiantSnake extends Monster{
     public static String scream = "Ssssss";
 
     public GiantSnake(String name) {
-        super(name + " the Snake", 5);
+        super(name + " the Snake", 7);
 
     }
 
