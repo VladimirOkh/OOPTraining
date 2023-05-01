@@ -10,8 +10,9 @@ public class Monster {
     }
 
     public void growl(){
-        System.out.printf(" " + name + " growled");
+        System.out.print(" " + name + " growled\n");
     }
+
 
     public void attack(){
         System.out.println("Monster " + name +  " attacked with damage " + damage);
