@@ -1,31 +1,21 @@
-public class Zombie extends Monster{
-
-    public static String scream = "Raaaauuughhhh";
+public class Zombie extends Monster implements Fighter{
 
     public Zombie(String name) {
         super(name + " the Zombie", 5);
+    }
 
+    public void growl(){
+        System.out.println("Raaaauuughhhh");
     }
 
     @Override
-    public void attack() {
-        super.attack();
+    public void attack(Monster monster){
+        monster.damage(getForce());
         growl();
     }
 
     @Override
-    public void growl() {
-        System.out.print(scream);
-        super.growl();
+    public void attack(Entity entity) {
+
     }
-
-    public void growl(boolean isLoud) {
-        if(isLoud) {
-            System.out.print(scream.toUpperCase());
-            super.growl();
-        }
-        else growl();
-    }
-
-
 }

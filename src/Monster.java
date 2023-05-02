@@ -1,47 +1,32 @@
-public class Monster {
-    private int HP;
-    private int damage;
+public abstract class Monster {
     private String name;
+    private int force;
+    private int hp = 15;
+    private boolean destroyed = false;
 
-    public Monster(String name, int damage){
+    public Monster(String name, int force) {
+        this.name = name;
+        this.force = force;
         System.out.println("Monster " + name + " was created");
-        this.name = name;
-        this.damage = damage;
     }
 
-    public void growl(){
-        System.out.print(" " + name + " growled\n");
+    protected int getForce(){
+        return force;
     }
 
-
-    public void attack(){
-        System.out.println("Monster " + name +  " attacked with damage " + damage);
+    public boolean isDestroyed(){
+        return destroyed;
     }
 
-
-
-
-    public int getHP() {
-        return HP;
+    protected boolean damage(int dhp){
+        hp -= dhp;
+        if (hp < 0){
+            destroyed = true;
+            System.out.println("Monster " + name + " was destroyed");
+            return true;
+        }
+        return false;
     }
 
-    public void setHP(int HP) {
-        this.HP = HP;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    abstract public void attack(Monster monster);
 }
